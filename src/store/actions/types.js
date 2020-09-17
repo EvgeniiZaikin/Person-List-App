@@ -1,3 +1,2 @@
 export const TOGGLE_LOADER = 'TOGGLE_LOADER';
-
 export const SET_PERSON_LIST = 'SET_PERSON_LIST';

@@ -1,4 +1,4 @@
-import { SET_PERSON_LIST } from '../actions/actions';
+import { SET_PERSON_LIST } from '../actions/types';
 
 const initialState = {
     photo: '',
