@@ -1,0 +1,15 @@
+.person-block-standard {
+    border: 1px solid red;
+    width: 250px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.person-fio-standard {
+    display: flex;
+    justify-content: center;
+}
+
+.person-email-standard {
+    font-style: italic;
+}

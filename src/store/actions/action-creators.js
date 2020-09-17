@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { TOGGLE_LOADER, SET_PERSON_LIST } from './types';
+import { TOGGLE_LOADER, SET_PERSON_LIST, SHOW_GET_DATA_BUTTON } from './types';
 
-export const toggleLoader = status => ({type: TOGGLE_LOADER, payload: status});
+export const toggleLoader = status => ({ type: TOGGLE_LOADER, payload: status });
 
 export const setPersonList = () => dispatch => {
     setTimeout(async () => {
@@ -21,5 +21,8 @@ export const setPersonList = () => dispatch => {
         }
         console.log('AFTER SET PERSON LIST dispatch');
         dispatch({ type: TOGGLE_LOADER, payload: false });
+        dispatch({ type: SHOW_GET_DATA_BUTTON, payload: false });
     }, 2500);
 };
+
+export const showGetDataButton = show => ({ type: SHOW_GET_DATA_BUTTON, payload: show });
