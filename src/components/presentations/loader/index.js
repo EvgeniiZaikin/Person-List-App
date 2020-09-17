@@ -1,3 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default () => <p>Loading...</p>;
+const loader = ({ loader }) => {
+    return (
+        <>
+            { loader.loader && <p>Loading...</p> }
+        </>
+    );
+};
+
+export default connect(state => state)(loader);
