@@ -6,13 +6,15 @@ import thunk from 'redux-thunk';
 
 import './App.css';
 
+import { PersonList } from './components/containers';
 import { AppTitle, Loader, Button } from './components/presentations';
-import { setPersonList } from './store/actions/action-creators';
+import { setPersonList, toggleLoader } from './store/actions/action-creators';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 const getData = dispatch => {
     console.log('method getData start');
+    dispatch(toggleLoader(true));
     dispatch(setPersonList());
 };
 
@@ -23,6 +25,10 @@ function App() {
                 <AppTitle />
                 <Loader />
                 <Button click={ getData.bind(null, store.dispatch) } label='получить данные' />
+                <PersonList />
+                {/*{*/}
+                {/*    store.getState().personList.list.map(item => <p>!</p>)*/}
+                {/*}*/}
             </div>
         </Provider>
     );
