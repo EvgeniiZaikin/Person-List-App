@@ -5,9 +5,13 @@ import rootReducers from './store/reducers';
 
 import './App.css';
 
-import { AppTitle, Loader } from './components/presentations';
+import { AppTitle, Loader, Button } from './components/presentations';
 
 const store = createStore(rootReducers);
+
+const getData = () => {
+    alert();
+};
 
 function App() {
     return (
@@ -15,6 +19,7 @@ function App() {
             <div className="App">
                 <AppTitle />
                 <Loader />
+                <Button click={getData} label='получить данные' />
             </div>
         </Provider>
     );

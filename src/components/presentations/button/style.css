@@ -1,0 +1,16 @@
+.all-button-standard {
+    border: 1px solid black;
+    background: transparent;
+    color: black;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all .15s linear;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.all-button-standard:hover {
+    background: black;
+    color: white;
+    border: 1px solid white;
+}
