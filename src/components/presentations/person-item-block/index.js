@@ -1,7 +1,11 @@
 import React from "react";
 import './style.css';
+import { connect } from 'react-redux';
+import { togglePersonInfoBlock } from '../../../store/actions/action-creators';
 
-export default ({ email, gender, name, surname, photo }) => (
+import Button from '../button';
+
+const personItemBlock = ({ email, gender, name, surname, photo, dispatch }) => (
     <div>
         <div className='person-block-standard'>
             <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
@@ -11,6 +15,9 @@ export default ({ email, gender, name, surname, photo }) => (
             </div>
             <h3>{ gender }</h3>
             <p className='person-email-standard'>{ email }</p>
+            <Button label='подробнее' click={() => { dispatch(togglePersonInfoBlock(true)) }} />
         </div>
     </div>
 );
+
+export default connect(state => state)(personItemBlock);

@@ -1,0 +1,15 @@
+.person-info-screen-block-standard {
+    position: fixed;
+    z-index: 5;
+    background: rgba(0, 0, 0, .6);
+    width: 100vw;
+    height: 100vh;
+}
+
+.person-info-screen-block-show {
+    visibility: visible;
+}
+
+.person-info-screen-block-hidden {
+    visibility: hidden;
+}

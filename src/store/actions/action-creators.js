@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { TOGGLE_LOADER, SET_PERSON_LIST, SHOW_GET_DATA_BUTTON } from './types';
+import { TOGGLE_LOADER, SET_PERSON_LIST, SHOW_GET_DATA_BUTTON, SHOW_PERSON_INFO_BLOCK } from './types';
 
 export const toggleLoader = status => ({ type: TOGGLE_LOADER, payload: status });
 
@@ -20,9 +20,11 @@ export const setPersonList = () => dispatch => {
             dispatch({ type: SET_PERSON_LIST, payload: [] });
         }
         console.log('AFTER SET PERSON LIST dispatch');
-        dispatch({ type: TOGGLE_LOADER, payload: false });
-        dispatch({ type: SHOW_GET_DATA_BUTTON, payload: false });
+        dispatch(toggleLoader(false));
+        dispatch(showGetDataButton(false));
     }, 2500);
 };
 
 export const showGetDataButton = show => ({ type: SHOW_GET_DATA_BUTTON, payload: show });
+
+export const togglePersonInfoBlock = show => ({ type: SHOW_PERSON_INFO_BLOCK, payload: show });
