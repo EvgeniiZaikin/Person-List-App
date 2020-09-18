@@ -5,16 +5,19 @@ import { connect } from 'react-redux';
 import Button from "../button";
 import {togglePersonInfoBlock} from "../../../store/actions/action-creators";
 
-const personInfoScreen = ({ email, gender, name, surname, photo, personInfoScreen: { show }, dispatch }) => (
+const personInfoScreen = ({ personInfoScreen: { show, person: { email, gender, name, surname, photo } }, dispatch }) => (
     <div className={ `person-info-screen-block-standard person-info-screen-block-${ show ? 'show' : 'hidden' }` }>
-        <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
-        <div>
-            <p>{ name }</p>
-            <p>{ surname }</p>
+        <div className='person-info-wrap-standard'>
+            <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
+            <div className='person-fio-wrap-standard'>
+                <p>{ name }</p>
+                &nbsp; &nbsp; &nbsp;
+                <p>{ surname }</p>
+            </div>
+            <h3 className='person-info-gender-standard'>{ gender }</h3>
+            <p className='person-info-email-standard'>{ email }</p>
+            <Button label='закрыть' click={() => { dispatch(togglePersonInfoBlock(false)) }} />
         </div>
-        <h3>{ gender }</h3>
-        <p>{ email }</p>
-        <Button label='закрыть' click={() => { dispatch(togglePersonInfoBlock(false)) }} />
     </div>
 );
 

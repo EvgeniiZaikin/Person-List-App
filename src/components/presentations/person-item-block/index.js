@@ -1,9 +1,14 @@
 import React from "react";
 import './style.css';
 import { connect } from 'react-redux';
-import { togglePersonInfoBlock } from '../../../store/actions/action-creators';
+import { setPersonInfo, togglePersonInfoBlock } from '../../../store/actions/action-creators';
 
 import Button from '../button';
+
+const openCurrentPerson = (dispatch, person) => {
+    dispatch(setPersonInfo(person));
+    dispatch(togglePersonInfoBlock(true));
+};
 
 const personItemBlock = ({ email, gender, name, surname, photo, dispatch }) => (
     <div>
@@ -15,7 +20,7 @@ const personItemBlock = ({ email, gender, name, surname, photo, dispatch }) => (
             </div>
             <h3>{ gender }</h3>
             <p className='person-email-standard'>{ email }</p>
-            <Button label='подробнее' click={() => { dispatch(togglePersonInfoBlock(true)) }} />
+            <Button label='подробнее' click={ openCurrentPerson.bind(this, dispatch, { email, gender, name, surname, photo }) } />
         </div>
     </div>
 );
