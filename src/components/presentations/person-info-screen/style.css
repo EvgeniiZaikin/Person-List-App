@@ -7,14 +7,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity .4s ease;
 }
 
 .person-info-screen-block-show {
     visibility: visible;
+    opacity: 1;
 }
 
 .person-info-screen-block-hidden {
     visibility: hidden;
+    opacity: 0;
 }
 
 .person-info-wrap-standard {

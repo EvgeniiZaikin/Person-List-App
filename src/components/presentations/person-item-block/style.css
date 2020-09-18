@@ -1,8 +1,11 @@
 .person-block-standard {
-    border: 1px solid red;
     width: 250px;
     box-sizing: border-box;
-    display: inline-block;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
 }
 
 .person-fio-standard {

@@ -10,17 +10,11 @@ const openCurrentPerson = (dispatch, person) => {
     dispatch(togglePersonInfoBlock(true));
 };
 
-const personItemBlock = ({ email, gender, name, surname, photo, dispatch }) => (
+const personItemBlock = ({ person, dispatch }) => (
     <div>
         <div className='person-block-standard'>
-            <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
-            <div className='person-fio-standard'>
-                <p>{ name }</p>
-                <p>{ surname }</p>
-            </div>
-            <h3>{ gender }</h3>
-            <p className='person-email-standard'>{ email }</p>
-            <Button label='подробнее' click={ openCurrentPerson.bind(this, dispatch, { email, gender, name, surname, photo }) } />
+            <img src={ person.photo } alt={ `Name: ${ person.name }. Surname: ${ person.surname }` } />
+            <Button label='подробнее' click={ openCurrentPerson.bind(this, dispatch, person) } />
         </div>
     </div>
 );

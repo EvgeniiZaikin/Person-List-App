@@ -12,12 +12,7 @@ const personList = ({ personList: { list } }) => {
 
                     return (
                         <React.Fragment key={ index }>
-                            <PersonItemBlock
-                                email={ email }
-                                name = { name }
-                                surname={ surname }
-                                gender={ gender }
-                                photo={ photo } />
+                            <PersonItemBlock person = {{ email, name, surname, gender, photo }} />
                         </React.Fragment>
                     )
                 })
