@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const loader = ({ loader }) => {
     return (
@@ -10,3 +11,9 @@ const loader = ({ loader }) => {
 };
 
 export default connect(state => state)(loader);
+
+loader.propTypes = {
+    loader: PropTypes.shape({
+        loader: PropTypes.bool,
+    }),
+};

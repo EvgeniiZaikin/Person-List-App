@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { PersonItemBlock } from '../../presentations';
 
@@ -22,3 +23,9 @@ const personList = ({ personList: { list } }) => {
 };
 
 export default connect(state => state)(personList);
+
+personList.propTypes = {
+    personList: PropTypes.shape({
+        list: PropTypes.arrayOf(PropTypes.object),
+    }),
+};

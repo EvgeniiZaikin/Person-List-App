@@ -1,6 +1,7 @@
 import React from "react";
 import './style.css';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Button from "../button";
 import {togglePersonInfoBlock} from "../../../store/actions/action-creators";
@@ -22,3 +23,17 @@ const personInfoScreen = ({ personInfoScreen: { show, person: { email, gender, n
 );
 
 export default connect(state => state)(personInfoScreen);
+
+personInfoScreen.propTypes = {
+    dispatch: PropTypes.func,
+    personInfoScreen: PropTypes.shape({
+        show: PropTypes.bool,
+        person: PropTypes.shape({
+            email: PropTypes.string,
+            gender: PropTypes.string,
+            name: PropTypes.string,
+            surname: PropTypes.string,
+            photo: PropTypes.string,
+        }),
+    }),
+};

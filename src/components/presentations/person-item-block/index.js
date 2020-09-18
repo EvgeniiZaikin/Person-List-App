@@ -2,6 +2,7 @@ import React from "react";
 import './style.css';
 import { connect } from 'react-redux';
 import { setPersonInfo, togglePersonInfoBlock } from '../../../store/actions/action-creators';
+import PropTypes from 'prop-types';
 
 import Button from '../button';
 
@@ -20,3 +21,8 @@ const personItemBlock = ({ person, dispatch }) => (
 );
 
 export default connect(state => state)(personItemBlock);
+
+personItemBlock.propTypes = {
+    dispatch: PropTypes.func,
+    person: PropTypes.objectOf(PropTypes.string),
+};
