@@ -4,11 +4,11 @@ import { TOGGLE_LOADER, SET_PERSON_LIST, SET_PERSON_INFO, SHOW_GET_DATA_BUTTON, 
 
 export const toggleLoader = status => ({ type: TOGGLE_LOADER, payload: status });
 
-export const setPersonList = () => dispatch => {
+export const setPersonList = countPeople => dispatch => {
     // 2500 delay is only for example
     setTimeout(async () => {
         try {
-            const { data } = await axios.get('https://randomuser.me/api/?seed=foobar&results=15&page=1', {
+            const { data } = await axios.get(`https://randomuser.me/api/?seed=foobar&results=${ countPeople }&page=1`, {
                 headers: {
                     'Access-Control-Allow-Origin': 'Origin',
                     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',

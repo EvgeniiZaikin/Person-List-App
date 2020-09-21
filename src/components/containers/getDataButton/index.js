@@ -4,15 +4,15 @@ import { Button } from "../../presentations";
 import { setPersonList, toggleLoader } from "../../../store/actions/action-creators";
 import PropTypes from 'prop-types';
 
-const getData = dispatch => {
+const getData = (dispatch, countPeople) => {
     dispatch(toggleLoader(true));
-    dispatch(setPersonList());
+    dispatch(setPersonList(countPeople));
 };
 
-const getDataButton = ({ dispatch, getDataButton: { show } }) => (
+const getDataButton = ({ dispatch, getDataButton: { show }, countPeople }) => (
     <>
         {
-            show && <Button click={ getData.bind(null, dispatch) } label='получить данные' />
+            show && <Button click={ getData.bind(null, dispatch, countPeople) } label='получить данные' />
         }
     </>
 );
@@ -24,4 +24,5 @@ getDataButton.propTypes = {
     getDataButton: PropTypes.shape({
         show: PropTypes.bool.isRequired,
     }),
+    countPeople: PropTypes.number.isRequired,
 };
