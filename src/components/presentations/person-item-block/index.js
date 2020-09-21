@@ -13,7 +13,7 @@ const openCurrentPerson = (dispatch, person) => {
 
 const personItemBlock = ({ person, dispatch }) => (
     <div>
-        <div className='person-block-standard'>
+        <div className='person-item-block'>
             <img src={ person.photo } alt={ `Name: ${ person.name }. Surname: ${ person.surname }` } />
             <Button label='подробнее' click={ openCurrentPerson.bind(this, dispatch, person) } />
         </div>
@@ -23,6 +23,6 @@ const personItemBlock = ({ person, dispatch }) => (
 export default connect(state => state)(personItemBlock);
 
 personItemBlock.propTypes = {
-    dispatch: PropTypes.func,
-    person: PropTypes.objectOf(PropTypes.string),
+    dispatch: PropTypes.func.isRequired,
+    person: PropTypes.objectOf(PropTypes.string).isRequired,
 };

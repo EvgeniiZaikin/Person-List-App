@@ -20,5 +20,8 @@ const getDataButton = ({ dispatch, getDataButton: { show } }) => (
 export default connect(state => state)(getDataButton);
 
 getDataButton.propTypes = {
-    dispatch: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
+    getDataButton: PropTypes.shape({
+        show: PropTypes.bool.isRequired,
+    }),
 };

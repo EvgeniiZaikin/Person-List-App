@@ -7,16 +7,16 @@ import Button from "../button";
 import {togglePersonInfoBlock} from "../../../store/actions/action-creators";
 
 const personInfoScreen = ({ personInfoScreen: { show, person: { email, gender, name, surname, photo } }, dispatch }) => (
-    <div className={ `person-info-screen-block-standard person-info-screen-block-${ show ? 'show' : 'hidden' }` }>
-        <div className='person-info-wrap-standard'>
+    <div className={ `person-info__block person-info__block_${ show ? 'visible' : 'hidden' }` }>
+        <div className='person-info__wrap'>
             <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
-            <div className='person-fio-wrap-standard'>
+            <div className='person-info__fio-block'>
                 <p>{ name }</p>
                 &nbsp; &nbsp; &nbsp;
                 <p>{ surname }</p>
             </div>
-            <h3 className='person-info-gender-standard'>{ gender }</h3>
-            <p className='person-info-email-standard'>{ email }</p>
+            <h3 className='person-info__gender'>{ gender }</h3>
+            <p className='person-info__email'>{ email }</p>
             <Button label='закрыть' click={() => { dispatch(togglePersonInfoBlock(false)) }} />
         </div>
     </div>
@@ -25,15 +25,15 @@ const personInfoScreen = ({ personInfoScreen: { show, person: { email, gender, n
 export default connect(state => state)(personInfoScreen);
 
 personInfoScreen.propTypes = {
-    dispatch: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
     personInfoScreen: PropTypes.shape({
-        show: PropTypes.bool,
+        show: PropTypes.bool.isRequired,
         person: PropTypes.shape({
-            email: PropTypes.string,
-            gender: PropTypes.string,
-            name: PropTypes.string,
-            surname: PropTypes.string,
-            photo: PropTypes.string,
+            email: PropTypes.string.isRequired,
+            gender: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            surname: PropTypes.string.isRequired,
+            photo: PropTypes.string.isRequired,
         }),
     }),
 };

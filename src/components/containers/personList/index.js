@@ -26,6 +26,6 @@ export default connect(state => state)(personList);
 
 personList.propTypes = {
     personList: PropTypes.shape({
-        list: PropTypes.arrayOf(PropTypes.object),
+        list: PropTypes.arrayOf(PropTypes.object).isRequired,
     }),
 };

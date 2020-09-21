@@ -1,4 +1,4 @@
-.person-block-standard {
+.person-item-block {
     width: 250px;
     box-sizing: border-box;
     display: inline-flex;
@@ -6,13 +6,4 @@
     padding: 10px;
     border: 1px solid black;
     margin-top: 10px;
-}
-
-.person-fio-standard {
-    display: flex;
-    justify-content: center;
-}
-
-.person-email-standard {
-    font-style: italic;
 }
