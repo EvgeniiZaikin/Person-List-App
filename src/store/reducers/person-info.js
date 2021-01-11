@@ -1,4 +1,4 @@
-import { SET_PERSON_INFO, SHOW_PERSON_INFO_BLOCK } from '../actions/types';
+import { SET_PERSON_INFO, SHOW_PERSON_INFO_BLOCK } from '../actions/person-info';
 
 const initialState = {
     show: false,

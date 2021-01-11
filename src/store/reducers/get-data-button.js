@@ -1,4 +1,4 @@
-import { SHOW_GET_DATA_BUTTON } from '../actions/types';
+import { SHOW_GET_DATA_BUTTON } from '../actions/get-data-button';
 
 export default (state = {show: true}, { type, payload }) => {
     switch (type) {

@@ -1,4 +1,4 @@
-import { TOGGLE_LOADER } from '../actions/types';
+import { TOGGLE_LOADER } from '../actions/loader';
 
 export default (state = { loader: false }, { type, payload }) => {
     switch(type) {

@@ -1,4 +1,4 @@
-import { SET_PERSON_LIST } from '../actions/types';
+import { SET_PERSON_LIST } from '../actions/person-list';
 
 export default (state = { list: [] }, { type, payload }) => {
     switch (type) {
