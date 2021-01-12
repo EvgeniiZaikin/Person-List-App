@@ -4,16 +4,28 @@ import PropTypes from 'prop-types';
 
 import PersonItemBlock from '../person-item';
 
-const personList = ({ personList: { list } }) => {
+const personList = ({ list }) => {
     return (
         <>
             {
                 list.map((item, index) => {
-                    const { email, gender, name: { first: name, last: surname }, picture: { thumbnail: photo } } = item;
+                    const { 
+                        email, 
+                        gender, 
+                        name: { 
+                            first: name, 
+                            last: surname 
+                        }, 
+                        picture: { 
+                            thumbnail: photo 
+                        },
+                    } = item;
+
+                    const person = { email, name, surname, gender, photo };
 
                     return (
                         <React.Fragment key={ index }>
-                            <PersonItemBlock person = {{ email, name, surname, gender, photo }} />
+                            <PersonItemBlock person={ person } />
                         </React.Fragment>
                     )
                 })
@@ -22,10 +34,13 @@ const personList = ({ personList: { list } }) => {
     );
 };
 
-export default connect(state => state)(personList);
+const mapStateToProps = state => {
+    const { personList: { list } } = state;
+    return { list };
+};
+
+export default connect(mapStateToProps)(personList);
 
 personList.propTypes = {
-    personList: PropTypes.shape({
-        list: PropTypes.arrayOf(PropTypes.object).isRequired,
-    }),
+    list: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

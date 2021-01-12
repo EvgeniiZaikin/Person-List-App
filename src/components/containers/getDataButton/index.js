@@ -5,25 +5,41 @@ import PropTypes from 'prop-types';
 import { setPersonList } from '../../../store/creators/person-list';
 import { toggleLoader } from '../../../store/creators/loader';
 
-const getData = (dispatch, countPeople) => {
-    dispatch(toggleLoader(true));
-    dispatch(setPersonList(countPeople));
+const getDataButton = ({ show, countPeople, showLoader, setPersonListInfo }) => {
+    const getData = () => {
+        showLoader(); 
+        setPersonListInfo(countPeople);
+    };
+
+    return (
+        <>
+            {
+                show && 
+                <Button 
+                    click={ getData } 
+                    label='получить данные' 
+                />
+            }
+        </> 
+    );
 };
 
-const getDataButton = ({ dispatch, getDataButton: { show }, countPeople }) => (
-    <>
-        {
-            show && <Button click={ getData.bind(null, dispatch, countPeople) } label='получить данные' />
-        }
-    </>
-);
+const mapStateToProps = state => {
+    const { getDataButton: { show } } = state;
+    return { show };
+};
 
-export default connect(state => state)(getDataButton);
+const mapDispatchToProps = dispatch => {
+    const showLoader = () => dispatch(toggleLoader(true));
+    const setPersonListInfo = countPeople => dispatch(setPersonList(countPeople));
+    return { showLoader, setPersonListInfo };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(getDataButton);
 
 getDataButton.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    getDataButton: PropTypes.shape({
-        show: PropTypes.bool.isRequired,
-    }),
+    showLoader: PropTypes.func.isRequired,
+    setPersonListInfo: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired,
     countPeople: PropTypes.number.isRequired,
 };

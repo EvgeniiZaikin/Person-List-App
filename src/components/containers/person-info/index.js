@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Button from "../../presentations/button";
-import {togglePersonInfoBlock} from "../../../store/creators/person-info";
+import { togglePersonInfoBlock } from "../../../store/creators/person-info";
 
-const personInfoScreen = ({ personInfo: { show, person: { email, gender, name, surname, photo } }, dispatch }) => (
+const personInfoScreen = ({ show, email, gender, name, surname, photo, hideInfo }) => (
     <div className={ `person-info__block person-info__block_${ show ? 'visible' : 'hidden' }` }>
         <div className='person-info__wrap'>
             <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
@@ -17,23 +17,29 @@ const personInfoScreen = ({ personInfo: { show, person: { email, gender, name, s
             </div>
             <h3 className='person-info__gender'>{ gender }</h3>
             <p className='person-info__email'>{ email }</p>
-            <Button label='закрыть' click={() => { dispatch(togglePersonInfoBlock(false)) }} />
+            <Button label='закрыть' click={ hideInfo } />
         </div>
     </div>
 );
 
-export default connect(state => state)(personInfoScreen);
+const mapStateToProps = state => {
+    const { personInfo: { show, person: { email, gender, name, surname, photo } } } = state;
+    return { show, email, gender, name, surname, photo };
+};
+
+const mapDispatchToProps = dispatch => {
+    const hideInfo = () => dispatch(togglePersonInfoBlock(false));
+    return { hideInfo };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(personInfoScreen);
 
 personInfoScreen.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    personInfoScreen: PropTypes.shape({
-        show: PropTypes.bool.isRequired,
-        person: PropTypes.shape({
-            email: PropTypes.string.isRequired,
-            gender: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            surname: PropTypes.string.isRequired,
-            photo: PropTypes.string.isRequired,
-        }),
-    }),
+    hideInfo: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired,
+    email: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    surname: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
 };

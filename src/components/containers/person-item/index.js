@@ -3,26 +3,36 @@ import './style.css';
 import { connect } from 'react-redux';
 import { setPersonInfo, togglePersonInfoBlock } from '../../../store/creators/person-info';
 import PropTypes from 'prop-types';
-
 import Button from '../../presentations/button';
 
-const openCurrentPerson = (dispatch, person) => {
-    dispatch(setPersonInfo(person));
-    dispatch(togglePersonInfoBlock(true));
+const personItem = ({ person, setInfo, showInfo }) => {
+    const showPersonInfo = () => {
+        setInfo(person);
+        showInfo();
+    };
+
+    const { name, surname, photo } = person;
+
+    return (
+        <div>
+            <div className='person-item-block'>
+                <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
+                <Button label='подробнее' click={ showPersonInfo } />
+            </div>
+        </div>
+    );
 };
 
-const personItemBlock = ({ person, dispatch }) => (
-    <div>
-        <div className='person-item-block'>
-            <img src={ person.photo } alt={ `Name: ${ person.name }. Surname: ${ person.surname }` } />
-            <Button label='подробнее' click={ openCurrentPerson.bind(this, dispatch, person) } />
-        </div>
-    </div>
-);
+const mapDispatchToProps = dispatch => {
+    const setInfo = person => dispatch(setPersonInfo(person));
+    const showInfo = () => dispatch(togglePersonInfoBlock(true));
+    return { setInfo, showInfo };
+};
 
-export default connect(state => state)(personItemBlock);
+export default connect(null, mapDispatchToProps)(personItem);
 
-personItemBlock.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+personItem.propTypes = {
+    setInfo: PropTypes.func.isRequired,
+    showInfo: PropTypes.func.isRequired,
     person: PropTypes.objectOf(PropTypes.string).isRequired,
 };
