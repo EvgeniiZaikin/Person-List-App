@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from "redux";
-import rootReducers from './store/reducers';
+import rootReducers from '@reducers';
 import thunk from 'redux-thunk';
 
 import './App.css';
