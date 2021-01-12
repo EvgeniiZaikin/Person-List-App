@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import Presentations from "@presentations";
+import React from 'react';
+import { connect } from 'react-redux';
+import Presentations from '@presentations';
 import PropTypes from 'prop-types';
 import creators from '@creators';
 

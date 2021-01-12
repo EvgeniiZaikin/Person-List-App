@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 import getDataButton from './get-data-button';
 import loader from './loader';

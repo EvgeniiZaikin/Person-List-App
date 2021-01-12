@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import './style.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Presentations from "@presentations";
+import Presentations from '@presentations';
 import creators from '@creators';
 
 const { personInfo: { togglePersonInfoBlock } } = creators;
