@@ -1,8 +1,10 @@
 import axios from 'axios';
 import actions from '@actions';
-import { toggleLoader } from './loader';
-import { showGetDataButton } from './get-data-button';
+import loader from './loader';
+import getDataButton from './get-data-button';
 
+const { toggleLoader } = loader;
+const { showGetDataButton } = getDataButton;
 const { personList: { SET_PERSON_LIST } } = actions;
 
 const getRandomPersonList = async countPeople => {
@@ -26,7 +28,7 @@ const getRandomPersonList = async countPeople => {
     return data;
 };
 
-export const setPersonList = countPeople => dispatch => {
+const setPersonList = countPeople => dispatch => {
     // 2500 delay is only for example
     setTimeout(async () => {
         try {
@@ -38,4 +40,8 @@ export const setPersonList = countPeople => dispatch => {
         dispatch(toggleLoader(false));
         dispatch(showGetDataButton(false));
     }, 2500);
+};
+
+export default {
+    setPersonList,
 };

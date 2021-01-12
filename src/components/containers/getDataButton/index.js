@@ -2,8 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { Button } from "../../presentations";
 import PropTypes from 'prop-types';
-import { setPersonList } from '../../../store/creators/person-list';
-import { toggleLoader } from '../../../store/creators/loader';
+import creators from '@creators';
+
+const { 
+    personList: { setPersonList },
+    loader: { toggleLoader },
+} = creators;
 
 const getDataButton = ({ show, countPeople, showLoader, setPersonListInfo }) => {
     const getData = () => {

@@ -1,9 +1,11 @@
 import React from "react";
 import './style.css';
 import { connect } from 'react-redux';
-import { setPersonInfo, togglePersonInfoBlock } from '../../../store/creators/person-info';
 import PropTypes from 'prop-types';
 import Button from '../../presentations/button';
+import creators from '@creators';
+
+const { personInfo: { setPersonInfo, togglePersonInfoBlock } } = creators;
 
 const personItem = ({ person, setInfo, showInfo }) => {
     const showPersonInfo = () => {

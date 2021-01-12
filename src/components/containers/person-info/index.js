@@ -2,9 +2,10 @@ import React from "react";
 import './style.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Button from "../../presentations/button";
-import { togglePersonInfoBlock } from "../../../store/creators/person-info";
+import creators from '@creators';
+
+const { personInfo: { togglePersonInfoBlock } } = creators;
 
 const personInfoScreen = ({ show, email, gender, name, surname, photo, hideInfo }) => (
     <div className={ `person-info__block person-info__block_${ show ? 'visible' : 'hidden' }` }>
