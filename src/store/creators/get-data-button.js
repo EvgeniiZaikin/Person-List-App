@@ -1,3 +1,4 @@
-import { SHOW_GET_DATA_BUTTON } from '../actions/get-data-button';
+import actions from '@actions';
+const { getDataButton: { SHOW_GET_DATA_BUTTON } } = actions;
 
 export const showGetDataButton = show => ({ type: SHOW_GET_DATA_BUTTON, payload: show });

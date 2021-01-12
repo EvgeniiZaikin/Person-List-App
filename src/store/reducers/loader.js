@@ -1,6 +1,11 @@
-import { TOGGLE_LOADER } from '../actions/loader';
+import actions from '@actions';
+const { loader: { TOGGLE_LOADER } } = actions;
 
-export default (state = { loader: false }, { type, payload }) => {
+const initialState = {
+    laoder: false,
+};
+
+export default (state = initialState, { type, payload }) => {
     switch(type) {
         case TOGGLE_LOADER:
             return { ...state, loader: payload };

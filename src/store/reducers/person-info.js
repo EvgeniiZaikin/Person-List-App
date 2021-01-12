@@ -1,4 +1,5 @@
-import { SET_PERSON_INFO, SHOW_PERSON_INFO_BLOCK } from '../actions/person-info';
+import actions from '@actions';
+const { personInfo: { SET_PERSON_INFO, SHOW_PERSON_INFO_BLOCK } } = actions;
 
 const initialState = {
     show: false,

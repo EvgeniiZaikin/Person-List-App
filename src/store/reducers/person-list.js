@@ -1,6 +1,11 @@
-import { SET_PERSON_LIST } from '../actions/person-list';
+import actions from '@actions';
+const { personList: { SET_PERSON_LIST } } = actions;
 
-export default (state = { list: [] }, { type, payload }) => {
+const initialState = {
+    list: [],
+};
+
+export default (state = initialState, { type, payload }) => {
     switch (type) {
         case SET_PERSON_LIST:
             return { ...state, list: payload };

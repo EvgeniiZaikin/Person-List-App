@@ -1,1 +1,3 @@
-export const SET_PERSON_LIST = 'SET_PERSON_LIST';
+export default {
+    SET_PERSON_LIST: 'SET_PERSON_LIST',
+};

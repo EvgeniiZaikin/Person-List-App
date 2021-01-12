@@ -1,7 +1,9 @@
 import axios from 'axios';
-import { SET_PERSON_LIST } from '../actions/person-list';
+import actions from '@actions';
 import { toggleLoader } from './loader';
 import { showGetDataButton } from './get-data-button';
+
+const { personList: { SET_PERSON_LIST } } = actions;
 
 const getRandomPersonList = async countPeople => {
     const url = `https://randomuser.me/api/?seed=foobar&results=${ countPeople }&page=1`;
