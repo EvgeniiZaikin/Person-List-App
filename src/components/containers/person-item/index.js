@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { setPersonInfo, togglePersonInfoBlock } from '../../../store/creators/person-info';
 import PropTypes from 'prop-types';
 
-import Button from '../button';
+import Button from '../../presentations/button';
 
 const openCurrentPerson = (dispatch, person) => {
     dispatch(setPersonInfo(person));

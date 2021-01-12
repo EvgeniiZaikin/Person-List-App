@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { PersonItemBlock } from '../../presentations';
+import PersonItemBlock from '../person-item';
 
 const personList = ({ personList: { list } }) => {
     return (

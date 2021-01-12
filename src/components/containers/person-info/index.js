@@ -3,7 +3,7 @@ import './style.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Button from "../button";
+import Button from "../../presentations/button";
 import {togglePersonInfoBlock} from "../../../store/creators/person-info";
 
 const personInfoScreen = ({ personInfo: { show, person: { email, gender, name, surname, photo } }, dispatch }) => (

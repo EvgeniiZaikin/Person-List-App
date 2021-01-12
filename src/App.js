@@ -6,8 +6,8 @@ import thunk from 'redux-thunk';
 
 import './App.css';
 
-import { GetDataButton, PersonList } from './components/containers';
-import { AppTitle, CountPeopleInput, Loader, PersonInfoScreen } from './components/presentations';
+import { GetDataButton, PersonList, Loader, PersonInfo } from './components/containers';
+import { AppTitle, CountPeopleInput } from './components/presentations';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -17,7 +17,7 @@ function App() {
     return (
         <Provider store={ store }>
             <div className="App">
-                <PersonInfoScreen />
+                <PersonInfo />
                 <AppTitle />
                 <CountPeopleInput change={ setPeopleCount } defaultValue={ count } />
                 <Loader />
