@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Button from "../button";
-import {togglePersonInfoBlock} from "../../../store/actions/action-creators";
+import {togglePersonInfoBlock} from "../../../store/creators/person-info";
 
-const personInfoScreen = ({ personInfoScreen: { show, person: { email, gender, name, surname, photo } }, dispatch }) => (
+const personInfoScreen = ({ personInfo: { show, person: { email, gender, name, surname, photo } }, dispatch }) => (
     <div className={ `person-info__block person-info__block_${ show ? 'visible' : 'hidden' }` }>
         <div className='person-info__wrap'>
             <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />

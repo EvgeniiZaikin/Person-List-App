@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button } from "../../presentations";
-import { setPersonList, toggleLoader } from "../../../store/actions/action-creators";
 import PropTypes from 'prop-types';
+import { setPersonList } from '../../../store/creators/person-list';
+import { toggleLoader } from '../../../store/creators/loader';
 
 const getData = (dispatch, countPeople) => {
     dispatch(toggleLoader(true));

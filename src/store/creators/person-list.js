@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { SET_PERSON_LIST } from '../actions/person-list';
+import { toggleLoader } from './loader';
+import { showGetDataButton } from './get-data-button';
 
 const getRandomPersonList = async countPeople => {
     const url = `https://randomuser.me/api/?seed=foobar&results=${ countPeople }&page=1`;
@@ -26,7 +28,7 @@ export const setPersonList = countPeople => dispatch => {
     // 2500 delay is only for example
     setTimeout(async () => {
         try {
-            const { results, error } = getRandomPersonList(countPeople);
+            const { results, error } = await getRandomPersonList(countPeople);
             dispatch({ type: SET_PERSON_LIST, payload: error ? [] : results });
         } catch (exception) {
             dispatch({ type: SET_PERSON_LIST, payload: [] });
