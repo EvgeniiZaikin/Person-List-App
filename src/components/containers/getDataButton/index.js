@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button } from "../../presentations";
+import Presentations from "@presentations";
 import PropTypes from 'prop-types';
 import creators from '@creators';
 
@@ -19,7 +19,7 @@ const getDataButton = ({ show, countPeople, showLoader, setPersonListInfo }) => 
         <>
             {
                 show && 
-                <Button 
+                <Presentations.Button 
                     click={ getData } 
                     label='получить данные' 
                 />

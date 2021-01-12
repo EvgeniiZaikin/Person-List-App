@@ -2,7 +2,7 @@ import React from "react";
 import './style.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Button from '../../presentations/button';
+import Presentations from "@presentations";
 import creators from '@creators';
 
 const { personInfo: { setPersonInfo, togglePersonInfoBlock } } = creators;
@@ -19,7 +19,7 @@ const personItem = ({ person, setInfo, showInfo }) => {
         <div>
             <div className='person-item-block'>
                 <img src={ photo } alt={ `Name: ${ name }. Surname: ${ surname }` } />
-                <Button label='подробнее' click={ showPersonInfo } />
+                <Presentations.Button label='подробнее' click={ showPersonInfo } />
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import Loader from './loader';
 import PersonInfo from './person-info';
 import PersonItem from './person-item';
 
-export {
+export default {
     GetDataButton,
     PersonList,
     Loader,

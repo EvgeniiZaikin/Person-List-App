@@ -6,8 +6,10 @@ import thunk from 'redux-thunk';
 
 import './App.css';
 
-import { GetDataButton, PersonList, Loader, PersonInfo } from './components/containers';
-import { AppTitle, CountPeopleInput } from './components/presentations';
+import Containers from '@containers';
+import Presentations from '@presentations';
+const { GetDataButton, PersonList, Loader, PersonInfo } = Containers;
+const { AppTitle, CountPeopleInput } = Presentations;
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
